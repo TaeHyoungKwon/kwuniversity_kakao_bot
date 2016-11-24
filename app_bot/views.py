@@ -51,15 +51,20 @@ ex)확인번호가 '1234' 일 경우, 1234@예약확인 이라고 치시면 됩�
         elif content['content'] == "@학식식단":
             textContent = kw_hamjimaru()
 
-        elif "푸코메뉴" in content['content']: 
-            textContent = kw_foodcourtmenu()
+        elif "푸코메뉴" in content['content']:
 
-        elif "예약확인" in content['content']:
             menu = content['content']
 
-            menu = num.split("@")[0]
+            menu = menu.split("@")[0]
 
-            textContent = uc_reservation(menu)
+            textContent = kw_foodcourtmenu(menu)
+
+        elif "예약확인" in content['content']:
+            num = content['content']
+
+            num = num.split("@")[0]
+
+            textContent = uc_reservation(num)
          
 
         else:
