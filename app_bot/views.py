@@ -49,16 +49,17 @@ def message(request):
         elif content['content'] == "@학식식단":
             textContent = kw_hamjimaru()
 
-        elif content['content'] == "@푸코메뉴":
+        elif "푸코메뉴" in content['content']: 
             textContent = kw_foodcourtmenu()
 
         elif "예약확인" in content['content']:
-            num = content['content']
+            menu = content['content']
 
-            num = num.split("@")[0]
+            menu = num.split("@")[0]
 
-            textContent = uc_reservation(num)
-                
+            textContent = uc_reservation(menu)
+         
+
         else:
             textContent = {"text":"잘못 누르셨습니다. 욕설및 도배는 자제해주세요.."}
 
