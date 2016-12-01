@@ -13,15 +13,12 @@ def kw_foodcourtmenu(menu):
     elif menu == "한식":
         url = "http://foodcourt.kw.ac.kr/menu/menu_university.html"
 
-        pass
     elif menu == "철판":
         url = "http://foodcourt.kw.ac.kr/menu/menu_grilledfood.html"
 
-        pass
     elif menu == "일식":
         url = "http://foodcourt.kw.ac.kr/menu/menu_westernfood.html"
 
-        pass
     elif menu == "쌀국수":
         url = "http://foodcourt.kw.ac.kr/menu/menu_snackfood.html"
 

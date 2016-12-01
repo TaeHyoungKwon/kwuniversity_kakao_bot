@@ -35,8 +35,8 @@ def uc_reservation(num):
         if num in li :
             football_msg +=str(td_soup[cnt-4])+"\n" +  str(td_soup[cnt-3]) +" - " + str(td_soup[cnt-2]) + "\n" + str(td_soup[cnt-1]) + " - "+ str(td_soup[cnt+1]) + "\n\n"
         else:
-            print("No number")
-            
+           pass
+
         cnt +=1    
         
     football_msg = re.sub('<[^<]+?>', '', str(football_msg))
