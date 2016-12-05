@@ -12,6 +12,7 @@ from .kw_foodcourtmenu import kw_foodcourtmenu
 
 from .uc_reservation import *
 from .info_subway import info_subway
+from .info_bus import info_bus
 
 @csrf_exempt
 def message(request):
