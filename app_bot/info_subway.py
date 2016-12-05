@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 def info_subway():
 
-    api = 'http://swopenAPI.seoul.go.kr/api/subway/435156415a6b74683131396b51665744/xml/realtimeStationArrival/0/5/광운대' 
+    api = 'http://swopenAPI.seoul.go.kr/api/subway/435156415a6b74683131396b51665744/xml/realtimeStationArrival/0/4/광운대' 
 
     response = requests.get(api)
     inf = BeautifulSoup(response.text, 'html.parser')
