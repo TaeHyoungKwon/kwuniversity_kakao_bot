@@ -30,11 +30,15 @@ def message(request):
 - @학사일정\n= 학교 홈페이지 상의 학사일정을 보여줍니다.\n
 - @편의시설\n= 학교 편의시설에 대한 정보를 보여줍니다.\n
 - @학식식단\n= 함지마루 금주 식단을 보여줍니다.\n
--'KEYWORD'@푸코메뉴\n= KEYWORD = (중식,한식,일식,쌀국수) KEYWORD에 해당하는 메뉴와 가격을 보여줍니다.\n
-ex) 한식@푸코메뉴 , 중식@푸코메뉴 ... 이렇게 치시면 됩니다.
+- KEYWORD@푸코메뉴\n= KEYWORD = (중식,한식,일식,쌀국수) KEYWORD에 해당하는 메뉴와 가격을 보여줍니다.\n
+ex) 한식@푸코메뉴 , 중식@푸코메뉴
 ##### 편의 기능 #####\n
 - 확인번호@예약확인\n= 확인번호(예약자 폰번호 뒷자리)로 풋살장,학식,농구장 예약을 확인 할 수 있습니다.\n
-ex)확인번호가 '1234' 일 경우, 1234@예약확인 이라고 치시면 됩니다.''')}
+ex)확인번호가 '1234' 일 경우, 1234@예약확인 이라고 치시면 됩니다.
+- @지하철\n= 광운대역 실시간 도착정보를 전송합니다.\n
+
+
+''')}
                                          
 
         elif content['content'] == "@공지사항":
@@ -69,7 +73,13 @@ ex)확인번호가 '1234' 일 경우, 1234@예약확인 이라고 치시면 됩�
 
         elif content['content'] == "@지하철":
             textContent = info_subway()
-         
+
+        elif "버스" in content['content']:
+            busstop = content['content']
+
+            busstop = busstop.split("@")[0]
+
+            textContent = info_bus(busstop)
 
         else:
             textContent = {"text":"잘못 누르셨습니다. 욕설및 도배는 자제해주세요.."}
