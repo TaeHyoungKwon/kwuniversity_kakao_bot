@@ -31,7 +31,7 @@ def info_subway():
         for a in inf.find_all("row"):
 
             if a.find("subwayid").text == '1001' and a.find("updnline").text=="상행" and up == False:
-                inf_dict_up1["st_name"] = a.find("statnm").text
+                inf_dict_up1["st_name"] = a.find("statnnm").text
                 inf_dict_up1["st_updnline"] = a.find("updnline").text
                 inf_dict_up1["st_trainlinenm"] = a.find("trainlinenm").text.split("-")[0]
                 inf_dict_up1["st_recptndt"] = a.find("recptndt").text
