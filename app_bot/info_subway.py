@@ -13,9 +13,9 @@ def info_subway():
     inf = BeautifulSoup(response.text, 'html.parser')
 
 
-    if inf.find("message").text == "해하는 데이터가 없습니다.":
+    if inf.find("message").text == "해당하는 데이터가 없습니다.":
         message = "현재는 운행 시간이 아닙니다.\n"
-        result = {"text:message"}
+        result = {"text":message}
         return result
 
     else:
