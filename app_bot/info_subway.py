@@ -24,57 +24,33 @@ def info_subway():
         if a.find("subwayid").text == '1001' and a.find("updnline").text=="상행" and up == False:
             inf_dict_up1["st_name"] = a.find("statnnm").text
             inf_dict_up1["st_updnline"] = a.find("updnline").text
-            inf_dict_up1["st_arrivetime"] = a.find("barvldt").text
             inf_dict_up1["st_trainlinenm"] = a.find("trainlinenm").text.split("-")[0]
-            inf_dict_up1["st_barvldt"] = a.find("barvldt").text
-
-
             inf_dict_up1["st_recptndt"] = a.find("recptndt").text
             inf_dict_up1["st_arvlmsg2"] = a.find("arvlmsg2").text
-            inf_dict_up1["st_arvlmsg3"] = a.find("arvlmsg3").text
-            inf_dict_up1["st_arvlcd"] = a.find("arvlcd").text
+
             up = True
 
         if a.find("subwayid").text == '1001' and a.find("updnline").text=="상행" and up == True:
-            inf_dict_up2["st_name"] = a.find("statnnm").text
+           
             inf_dict_up2["st_updnline"] = a.find("updnline").text
-            inf_dict_up2["st_arrivetime"] = a.find("barvldt").text
             inf_dict_up2["st_trainlinenm"] = a.find("trainlinenm").text.split("-")[0]
-            inf_dict_up2["st_barvldt"] = a.find("barvldt").text
-
-            inf_dict_up2["st_recptndt"] = a.find("recptndt").text
             inf_dict_up2["st_arvlmsg2"] = a.find("arvlmsg2").text
-            inf_dict_up2["st_arvlmsg3"] = a.find("arvlmsg3").text
-            inf_dict_up2["st_arvlcd"] = a.find("arvlcd").text
+
 
         if a.find("subwayid").text == '1001' and a.find("updnline").text=="하행" and down == False:
-            inf_dict_down1["st_name"] = a.find("statnnm").text
             inf_dict_down1["st_updnline"] = a.find("updnline").text
-            inf_dict_down1["st_arrivetime"] = a.find("barvldt").text
             inf_dict_down1["st_trainlinenm"] = a.find("trainlinenm").text.split("-")[0]
-            inf_dict_down1["st_barvldt"] = a.find("barvldt").text
-
-            inf_dict_down1["st_recptndt"] = a.find("recptndt").text
             inf_dict_down1["st_arvlmsg2"] = a.find("arvlmsg2").text
-            inf_dict_down1["st_arvlmsg3"] = a.find("arvlmsg3").text
-            inf_dict_down1["st_arvlcd"] = a.find("arvlcd").text
             down = True
 
 
         if a.find("subwayid").text == '1001' and a.find("updnline").text=="하행" and down == True:
-            inf_dict_down2["st_name"] = a.find("statnnm").text
-            inf_dict_down2["st_updnline"] = a.find("updnline").text
-            inf_dict_down2["st_arrivetime"] = a.find("barvldt").text
             inf_dict_down2["st_trainlinenm"] = a.find("trainlinenm").text.split("-")[0]
-            inf_dict_down2["st_barvldt"] = a.find("barvldt").text
-
-            inf_dict_down2["st_recptndt"] = a.find("recptndt").text
             inf_dict_down2["st_arvlmsg2"] = a.find("arvlmsg2").text
-            inf_dict_down2["st_arvlmsg3"] = a.find("arvlmsg3").text
-            inf_dict_down2["st_arvlcd"] = a.find("arvlcd").text        
 
 
-    msg_intro = "{}역 지하철 실시간 도착정보 입니다.\n\n".format(inf_dict_down1['st_name'])
+
+    msg_intro = "{}역 지하철 실시간 도착정보 입니다.\n\n".format(inf_dict_up1['st_name'])
     msg_time = "기준 시각 : {}\n\n".format(inf_dict_up1['st_recptndt'])
     msg_info_up = ("# {}\n{} - {}\n{} - {}\n\n".format(
 
@@ -96,7 +72,13 @@ def info_subway():
 
     result = {"text":message}
     
+    print(result)
+    
     return result
 
 if __name__ == "__main__":
+
+    start = time.time()
     info_subway()
+    end = time.time() - start
+    print(end)
