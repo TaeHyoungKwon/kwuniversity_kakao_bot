@@ -72,13 +72,9 @@ def info_subway():
 
     result = {"text":message}
     
-    print(result)
     
     return result
 
 if __name__ == "__main__":
 
-    start = time.time()
     info_subway()
-    end = time.time() - start
-    print(end)
