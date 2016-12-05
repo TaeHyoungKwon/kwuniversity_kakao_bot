@@ -11,6 +11,7 @@ from .kw_hamjimaru import kw_hamjimaru
 from .kw_foodcourtmenu import kw_foodcourtmenu
 
 from .uc_reservation import *
+from .info_subway import info_subway
 
 @csrf_exempt
 def message(request):
@@ -65,6 +66,9 @@ ex)확인번호가 '1234' 일 경우, 1234@예약확인 이라고 치시면 됩�
             num = num.split("@")[0]
 
             textContent = uc_reservation(num)
+
+        elif content['content'] == "@지하철":
+            textContent = info_subway()
          
 
         else:
