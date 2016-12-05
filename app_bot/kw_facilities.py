@@ -21,21 +21,24 @@ def kw_facilities():
             k.remove(a)  
     cnt=0
     message1 = ""
-    message2=""
+    message2 = ""
+    message3 = "\n"
     for a in k[1:19]:
         message1 += a +"\n"
         cnt+=1
         if cnt % 6 == 0:
             message1 +="\n"
             
-    for a in k[19:]:
+    for a in k[19:34]:
         message2 += a +"\n"
         for b in ["주요상품 : 전공서적, 교재, 책, 잡지 등","영업시간 : 개장시간 보러가기","금융업무 안함","영업시간 : 09:00~18:00"]:
             if b in a:
                 message2 += "\n"
 
+    for a in k[34:]:
+        message3 += a + "\n"
     
-    message = message1 + message2
+    message = message1 + message2 + message3
     
     result = {"text":message}
 

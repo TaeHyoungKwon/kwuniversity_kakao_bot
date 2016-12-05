@@ -49,7 +49,7 @@ def kw_hamjimaru():
     "time" : str(diet_0['st']) + " ~ " + str(diet_0['et']) + "\n",
     "mon" : "월요일 - "+start['value'] + "\n" + diet_0['d1'],
     "tue" : "화요일 - "+ date_modify(start['value'],"화요일")  + "\n" + diet_0['d2'],
-    "wed" : "화요일 - "+ date_modify(start['value'],"수요일")  + "\n" + diet_0['d3'],
+    "wed" : "수요일 - "+ date_modify(start['value'],"수요일")  + "\n" + diet_0['d3'],
     "thu" : "목요일 - "+ date_modify(start['value'],"목요일")  + "\n" + diet_0['d4'],
     "fri" : "금요일 - "+ end['value']  + "\n" + diet_0['d5']
     })
@@ -60,8 +60,8 @@ def kw_hamjimaru():
     "(" + result_yethyang['price'] + ")" + "\n"+ 
     result_yethyang['time'] + "\n" +
     result_yethyang['mon'] + "\n\n" +
-    result_yethyang['tue'] + "\n" +
-    result_yethyang['wed'] + "\n" +
+    result_yethyang['tue'] + "\n\n" +
+    result_yethyang['wed'] + "\n\n" +
     result_yethyang['thu'] + "\n\n" +
     result_yethyang['fri'] + "\n"        
     )
@@ -89,11 +89,11 @@ def kw_hamjimaru():
 
     "\n\n" + result_court['name'] + 
     "(" + result_court['price'] + ")" + "\n"+ 
-    result_court['time'] + "\n" +
-    result_court['mon'] + "\n" +
-    result_court['tue'] + "\n" +
+    result_court['time'] + "\n\n" +
+    result_court['mon'] + "\n\n" +
+    result_court['tue'] + "\n\n" +
     result_court['wed'] + "\n\n" +
-    result_court['thu'] + "\n"
+    result_court['thu'] + "\n\n"
 
     )
 
