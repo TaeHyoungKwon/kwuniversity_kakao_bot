@@ -5,16 +5,16 @@ from bs4 import BeautifulSoup
 def info_bus(busstop):
 
     if busstop =="광운대":
-        api_1 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11285&numOfRows=999&pageSize=999&pageNo=1&startPage=1"
-        api_2 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11335&numOfRows=999&pageSize=999&pageNo=1&startPage=1"
+        api_1 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11285&numOfRows=1&pageSize=1&pageNo=1&startPage=1"
+        api_2 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11335&numOfRows=1&pageSize=1&pageNo=1&startPage=1"
     
     elif busstop =="석계":
-        api_1 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11457&numOfRows=999&pageSize=999&pageNo=1&startPage=1"
-        api_2 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11594&numOfRows=999&pageSize=999&pageNo=1&startPage=1"
+        api_1 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11457&numOfRows=1&pageSize=1&pageNo=1&startPage=1"
+        api_2 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11594&numOfRows=1&pageSize=1&pageNo=1&startPage=1"
 
     elif busstop == "월계삼거리":
-        api_1 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11286&numOfRows=5&pageSize=10&pageNo=1&startPage=1"
-        api_2 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11336&numOfRows=5&pageSize=10&pageNo=1&startPage=1"
+        api_1 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11286&numOfRows=1&pageSize=1&pageNo=1&startPage=1"
+        api_2 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11336&numOfRows=1&pageSize=1&pageNo=1&startPage=1"
     
     else:
         message = "잘못된 단어를 입력했습니다. 메뉴얼에 나온 그대로 다시 입력해주세요."
