@@ -101,6 +101,16 @@ def info_bus(busstop):
 
             message = msg_top + msg_bus1 +  msg_bus2 +  msg_bus3  + msg_middle + msg_bus4 +  msg_bus5 +  msg_bus6 +  msg_bus7
 
+	 elif busstop == "월계삼거리":
+		msg_top =  "실시간 버스 도착정보 입니다.\n\n\n월계삼거리 -> 월계 방향 or 광운대역 방향\n\n"
+		msg_bus1 ="* {}\n{}\n{}\n\n".format(inf_dict1['bus_1'], inf_dict1['arrmsgsec1_1'], inf_dict1['arrmsgsec2_1'])
+		msg_bus2 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_2'], inf_dict1['arrmsgsec1_2'], inf_dict1['arrmsgsec2_2'])
+
+		msg_middle =  "월계삼거리(에뽕버거 앞) -> 광운대 정문 방향  \n\n"
+		msg_bus4 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_1'],inf_dict2['arrmsgsec1_1'],inf_dict2['arrmsgsec2_1'])
+		msg_bus5 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_2'],inf_dict2['arrmsgsec1_2'],inf_dict2['arrmsgsec2_2'])
+
+        message = msg_top + msg_bus1 +  msg_bus2 + msg_middle + msg_bus4 +  msg_bus5
 
         result = {"text":message}
         end = time.time() - start
@@ -110,9 +120,6 @@ def info_bus(busstop):
     
     except requests.exceptions.ConnectionError:
         requests.status_code = "Connection refuse"
-        
-        print(end)
-
         return r.status_code        
         
 
