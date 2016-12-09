@@ -70,7 +70,6 @@ def kw_hamjimaru():
         
         
         message = start['value'] + " ~ " + end['value']+ "\n함지마루(복지관 학생식당) 금주 식단 입니다."+ "\n"+"\n!!!해당 정보는 학교 홈피에서 받아 오고 있습니다. 업데이트 안되어있을시, 학교 복지처에 문의해 주세요.!!!\n\n" + result_yethyang_str
-        print(message)
         result = {"text":message}
         
         return result

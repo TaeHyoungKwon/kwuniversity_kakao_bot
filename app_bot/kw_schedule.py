@@ -39,10 +39,7 @@ def kw_schedule():
         })
     
     
-    result_11_str = result_11["month"] + result_11["event1"]+"\n\n" + result_11["event2"]+"\n\n" + result_11["event3"] + "\n\n\n"
-    
-    print(result_11_str)
-    
+    result_11_str = result_11["month"] + result_11["event1"]+"\n\n" + result_11["event2"]+"\n\n" + result_11["event3"] + "\n\n\n" 
     
     
     bachelor_12 = text["bachelor_12"][0]
