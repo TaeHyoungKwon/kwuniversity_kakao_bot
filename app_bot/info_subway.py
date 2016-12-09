@@ -10,7 +10,6 @@ def info_subway():
     api = 'http://swopenAPI.seoul.go.kr/api/subway/435156415a6b74683131396b51665744/xml/realtimeStationArrival/0/5/광운대' 
     
     response = requests.get(api)
-    time.sleep(1)
     inf = BeautifulSoup(response.text, 'html.parser')
 
 
@@ -87,5 +86,7 @@ def info_subway():
 
 
 if __name__ == "__main__":
-
+    start = time.time()
     info_subway()
+    end = time.time() - start
+    print(end)

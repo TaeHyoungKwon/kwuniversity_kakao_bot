@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+import time
 
 def info_bus(busstop):
 
@@ -111,4 +111,7 @@ def info_bus(busstop):
         
 
 if __name__ == "__main__":
+    start = time.time()
     info_bus("광운대")
+    end = time.time() - start
+    print(end)
