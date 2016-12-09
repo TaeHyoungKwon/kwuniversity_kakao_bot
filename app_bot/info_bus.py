@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import time
 
 def info_bus(busstop):
-
+    start = time.time()
     if busstop =="광운대":
         api_1 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11285&numOfRows=5&pageSize=999&pageNo=1&startPage=1"
         api_2 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11335&numOfRows=5&pageSize=999&pageNo=1&startPage=1"
@@ -102,16 +102,18 @@ def info_bus(busstop):
 
 
         result = {"text":message}
+        end = time.time() - start
+        print(end)
 
         return result
     
     except requests.exceptions.ConnectionError:
         r.status_code = "Connection refuse"
+        
+        print(end)
+
         return r.status_code        
         
 
 if __name__ == "__main__":
-    start = time.time()
     info_bus("광운대")
-    end = time.time() - start
-    print(end)

@@ -6,6 +6,7 @@ import time
 
 
 def info_subway():
+    start = time.time()
 
     api = 'http://swopenAPI.seoul.go.kr/api/subway/435156415a6b74683131396b51665744/xml/realtimeStationArrival/0/5/광운대' 
     
@@ -80,8 +81,8 @@ def info_subway():
         message = msg_intro + msg_time + msg_info_up + msg_info_down
 
         result = {"text":message}
-        
-        
+        end = time.time() - start
+        print(end)
         return result
 
 
