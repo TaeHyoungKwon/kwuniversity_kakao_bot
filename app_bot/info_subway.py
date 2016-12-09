@@ -60,7 +60,7 @@ def info_subway():
 
 
 
-        msg_intro = "{}역 지하철 실시간 도착정보 입니다.\n\n".format(inf_dict_up1['st_name'])
+        msg_intro = "광운대역 지하철 실시간 도착정보 입니다.\n\n"
         msg_time = "기준 시각 : {}\n\n".format(inf_dict_up1['st_recptndt'])
         msg_info_up = ("# {}\n{} - {}\n{} - {}\n\n".format(
 
