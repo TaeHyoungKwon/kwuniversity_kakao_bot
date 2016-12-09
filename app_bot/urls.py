@@ -8,7 +8,10 @@ urlpatterns = [
         url(r'^friend', views.friend),
         url(r'^chat_room', views.chat_room),
 
+        #url(r'^/', views.error_404),
+
         
         
         ]
 
+handler404 = views.error404

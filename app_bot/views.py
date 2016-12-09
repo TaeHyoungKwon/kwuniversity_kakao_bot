@@ -124,3 +124,5 @@ def chat_room(request):
 
     return response
 
+def error404(request):
+    return HttpResponse("No!")
