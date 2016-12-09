@@ -94,30 +94,33 @@ def initial_message(request):
     
 
 def key(request):
+
+    if request.method == "GET":
     
-    keyList = ["@메뉴얼"]
-    keyboardList = {'type':'buttons', 'buttons': keyList}
+        keyList = ["@메뉴얼"]
+        keyboardList = {'type':'buttons', 'buttons': keyList}
     
    # textContent = { "text" : '''안녕하세요 광운대학교 풍물굿패 연합 봇 입니다.\n1. !소개\n= 광풍연 소개를 보실 수 있습니다.\n\n2. !홍보영상= 광풍연 홍보영상을 보실 수 있습니다.\n\n3. 각 월 마다, 광풍연 행사에 대해서 보실 수 있습니다.'''}
    # textMessage = {"type":"text","message" : textContent}
     
-    return JsonResponse(keyboardList)
+        return JsonResponse(keyboardList)
 
 @csrf_exempt
 def friend(request):
-    content = json.loads(request.body.decode('utf-8'))
-    content = content['user_key']
-    response = HttpResponse("Ok!")
+    if request.method == "DELETE":
+        response = HttpResponse()
+        return response
+    
+    elif request.method =="POST":
+        response = HttpResponse()
 
-    return response
+        return response
 
 @csrf_exempt
 def chat_room(request):
-    print("chat_room")
-    content = json.loads(request.body.decode('utf-8'))
-    print(content)
-    response = HttpResponse("Ok!")
+    
+    if request.method =="DELETE":
+        response = HttpResponse()
 
     return response
-
 
