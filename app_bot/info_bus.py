@@ -43,10 +43,6 @@ def info_bus(busstop):
             inf_dict1["arrmsgsec1_2"] = a.find("arrmsgsec1").text
             inf_dict1["arrmsgsec2_2"] = a.find("arrmsgsec2").text
 
-        elif a.find("busrouteid").text == "100100130":
-            inf_dict1["bus_3"] = "1017"
-            inf_dict1["arrmsgsec1_3"] = a.find("arrmsgsec1").text
-            inf_dict1["arrmsgsec2_3"] = a.find("arrmsgsec2").text
 
     for a in inf2.find_all("itemlist"):
 
@@ -59,16 +55,6 @@ def info_bus(busstop):
             inf_dict2["bus_2"] = "1137"
             inf_dict2["arrmsgsec1_2"] = a.find("arrmsgsec1").text
             inf_dict2["arrmsgsec2_2"] = a.find("arrmsgsec2").text
-
-        elif a.find("busrouteid").text == "100100130":
-            inf_dict2["bus_3"] = "1017"
-            inf_dict2["arrmsgsec1_3"] = a.find("arrmsgsec1").text
-            inf_dict2["arrmsgsec2_3"] = a.find("arrmsgsec2").text
-
-        elif a.find("busrouteid").text == "100100155":
-            inf_dict2["bus_4"] = "1140"
-            inf_dict2["arrmsgsec1_4"] = a.find("arrmsgsec1").text
-            inf_dict2["arrmsgsec2_4"] = a.find("arrmsgsec2").text
 
         elif a.find("busrouteid").text == "110900006":
             inf_dict2["bus_5"] = "노원09"
@@ -89,30 +75,24 @@ def info_bus(busstop):
     elif busstop == "광운대":
         msg_top =  "실시간 버스 도착정보 입니다.\n\n\n광운대(신축 도서관 앞) -> 월계삼거리 방향\n\n"
         msg_bus1 ="* {}\n{}\n{}\n\n".format(inf_dict1['bus_1'], inf_dict1['arrmsgsec1_1'], inf_dict1['arrmsgsec2_1'])
-        msg_bus2 ="* {}\n{}\n{}\n\n".format(inf_dict1['bus_2'], inf_dict1['arrmsgsec1_2'], inf_dict1['arrmsgsec2_2'])
-        msg_bus3 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_3'], inf_dict1['arrmsgsec1_3'], inf_dict1['arrmsgsec2_3'])
+        msg_bus2 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_2'], inf_dict1['arrmsgsec1_2'], inf_dict1['arrmsgsec2_2'])
 
         msg_middle =  "광운대 (동해문화예술관 앞)-> 광운공고, 장위동 방향\n\n"
         msg_bus4 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_1'],inf_dict2['arrmsgsec1_1'],inf_dict2['arrmsgsec2_1'])
         msg_bus5 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_2'],inf_dict2['arrmsgsec1_2'],inf_dict2['arrmsgsec2_2'])
-        msg_bus6 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_3'],inf_dict2['arrmsgsec1_3'],inf_dict2['arrmsgsec2_3'])
-        msg_bus7 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_4'],inf_dict2['arrmsgsec1_4'],inf_dict2['arrmsgsec2_4'])   
 
-        message = msg_top + msg_bus1 +  msg_bus2 +  msg_bus3  + msg_middle + msg_bus4 +  msg_bus5 +  msg_bus6 +  msg_bus7
+        message = msg_top + msg_bus1 +  msg_bus2 + msg_middle + msg_bus4 +  msg_bus5
 
     elif busstop == "월계삼거리":
         msg_top =  "실시간 버스 도착정보 입니다.\n\n\n월계삼거리 -> 월계 방향 or 광운대역 방향\n\n"
         msg_bus1 ="* {}\n{}\n{}\n\n".format(inf_dict1['bus_1'], inf_dict1['arrmsgsec1_1'], inf_dict1['arrmsgsec2_1'])
-        msg_bus2 ="* {}\n{}\n{}\n\n".format(inf_dict1['bus_2'], inf_dict1['arrmsgsec1_2'], inf_dict1['arrmsgsec2_2'])
-        msg_bus3 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_3'], inf_dict1['arrmsgsec1_3'], inf_dict1['arrmsgsec2_3'])
+        msg_bus2 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_2'], inf_dict1['arrmsgsec1_2'], inf_dict1['arrmsgsec2_2'])
 
         msg_middle =  "월계삼거리(에뽕버거 앞) -> 광운대 정문 방향  \n\n"
         msg_bus4 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_1'],inf_dict2['arrmsgsec1_1'],inf_dict2['arrmsgsec2_1'])
         msg_bus5 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_2'],inf_dict2['arrmsgsec1_2'],inf_dict2['arrmsgsec2_2'])
-        msg_bus6 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_3'],inf_dict2['arrmsgsec1_3'],inf_dict2['arrmsgsec2_3'])
-        msg_bus7 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_4'],inf_dict2['arrmsgsec1_4'],inf_dict2['arrmsgsec2_4'])   
 
-        message = msg_top + msg_bus1 +  msg_bus2 +  msg_bus3  + msg_middle + msg_bus4 +  msg_bus5 +  msg_bus6 +  msg_bus7
+        message = msg_top + msg_bus1 +  msg_bus2 + msg_middle + msg_bus4 +  msg_bus5
 
     result = {"text":message}
     
