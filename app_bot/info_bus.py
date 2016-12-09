@@ -102,7 +102,6 @@ def info_bus(busstop):
 
 
         result = {"text":message}
-        print(result)
 
         return result
     
