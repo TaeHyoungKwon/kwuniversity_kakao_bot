@@ -1,13 +1,10 @@
+#공지사항
+
 import requests
 from bs4 import BeautifulSoup
 import json
 
-#공지사항
-
 def kw_notice():
-
-    initial_text =[]
-    result_text = []
     
     url = "http://www.kw.ac.kr/ko/life/notice.do"
     u_a = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36"
@@ -18,19 +15,16 @@ def kw_notice():
     div_soup = soup.find("div",{"class":"list-box"})
     a_soup = div_soup.find_all("a")
 
-    for a_tag in a_soup:
-        initial_text.append(a_tag.text)
-    
-    for text in initial_text:
-        for filter in ["\n","\t","신규게시글","Attachment"]:
-            if filter in text:
-                text = text.replace(filter,"")
-        result_text.append(text)
-
+    message=""
     cnt = 1
-    message = ""
-    for a in result_text[:20]:
-        message += str(cnt)+". " +  a + "\n\n"
+    
+    for ele in a_soup[:30]:
+        if "\n" in ele.text:
+            text = ele.text.replace("\t","")
+            text = text.replace("신규게시글","")
+            text = text.replace("\n","")
+            
+        message += str(cnt)+". " +  text + "\n\n"
         cnt+=1
         
     result = {"text":message}
@@ -39,3 +33,4 @@ def kw_notice():
 
 if __name__ == "__main__":
     kw_notice()
+
