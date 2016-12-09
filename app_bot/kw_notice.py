@@ -29,7 +29,7 @@ def kw_notice():
 
     cnt = 1
     message = ""
-    for a in result_text[:30]:
+    for a in result_text[:20]:
         message += str(cnt)+". " +  a + "\n\n"
         cnt+=1
         
