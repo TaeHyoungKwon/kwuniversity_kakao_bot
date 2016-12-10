@@ -21,6 +21,11 @@ def kw_foodcourtmenu(menu):
 
     elif menu == "쌀국수":
         url = "http://foodcourt.kw.ac.kr/menu/menu_snackfood.html"
+    else:
+        text ="해당 {} 는 올바르지 않은 키워드 입니다.\n".format(menu)
+        result = {"text":message}
+        return result
+
 
 
                         
