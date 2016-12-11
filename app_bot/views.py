@@ -1,6 +1,5 @@
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
-#from .models import SearchWord
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -24,12 +23,6 @@ def message(request):
     if request.method == "POST":
 
         content = json.loads(request.body.decode('utf-8'))
-'''        
-        word = get_object_or_404(SearchWord)
-        word.word = content['content']
-        word.timestamp = datetime.datetime.now()
-        word.save()
-'''     
         if content['content'] == "@메뉴얼":
             textContent = { "text" : ('''안녕하세요 '광운대알림봇' 입니다.\n
 ##### 메뉴얼 보기 #####\n
