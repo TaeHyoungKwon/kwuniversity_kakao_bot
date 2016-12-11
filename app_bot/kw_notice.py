@@ -17,9 +17,10 @@ def kw_notice():
     
     div_soup = soup.find("div",{"class":"list-box"})
     a_soup = div_soup.find_all("a")
+    p_soup = div_soup.find_all("p",{"class":"info"})
 
     message=""
-    cnt = 1
+    cnt = 0
     
     for ele in a_soup[:30]:
         if "\n" in ele.text:
@@ -27,7 +28,7 @@ def kw_notice():
             text = text.replace("신규게시글","")
             text = text.replace("\n","")
             
-        message += str(cnt)+". " +  text + "\n\n"
+        message += str(cnt+1)+". " +  text + "\n" + p_soup[cnt].text + "\n\n"
         cnt+=1
         
     result = {"text":message}
