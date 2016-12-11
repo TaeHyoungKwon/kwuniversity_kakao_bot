@@ -22,7 +22,10 @@ def info_bus(busstop):
         return result
 
     try:
+        
+        
         start1 = time.time()
+
         response1 = requests.get(api_1)
         response2 = requests.get(api_2)
         
