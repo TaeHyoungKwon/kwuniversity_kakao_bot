@@ -22,15 +22,17 @@ def kw_notice():
     message=""
     cnt = 0
     
-    for ele in a_soup[:30]:
-        if "\n" in ele.text:
-            text = ele.text.replace("\t","")
-            text = text.replace("신규게시글","")
-            text = text.replace("\n","")
+    for ele in a_soup[:25]:
+        if len(message) <= 2000:
+            if "\n" in ele.text:
+                text = ele.text.replace("\t","")
+                text = text.replace("신규게시글","")
+                text = text.replace("\n","")
+            message += str(cnt+1)+". " +  text + "\n" + p_soup[cnt].text + "\n\n"
+            cnt+=1
+        else:
+            break
             
-        message += str(cnt+1)+". " +  text + "\n" + p_soup[cnt].text + "\n\n"
-        cnt+=1
-        
     result = {"text":message}
     
     return result
