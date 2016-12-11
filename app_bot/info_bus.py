@@ -22,17 +22,19 @@ def info_bus(busstop):
         return result
 
     try:
+        start1 = time.time()
         response1 = requests.get(api_1)
         response2 = requests.get(api_2)
         
-        time.sleep(2)
+
         inf1 = BeautifulSoup(response1.text, 'html.parser')
         inf2 = BeautifulSoup(response2.text, 'html.parser')
 
         inf_dict1 = {}
         inf_dict2 = {}
 
-
+        end1 = time.time() - start1
+        print(end1)
         for a in inf1.find_all("itemlist"):
 
             if a.find("busrouteid").text == "100100043":
