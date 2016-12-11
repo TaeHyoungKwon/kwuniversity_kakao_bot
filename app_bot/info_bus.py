@@ -118,9 +118,9 @@ def info_bus(busstop):
 
         return result
     
-    except requests.exceptions.ConnectionError:
-        requests.status_code = "Connection refuse"
-        return r.status_code        
+    except (requests.exceptions.ConnectionError,OSError) as e:
+        info_bus(busstop)
+
         
 
 if __name__ == "__main__":
