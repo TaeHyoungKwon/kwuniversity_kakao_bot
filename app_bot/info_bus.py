@@ -43,7 +43,6 @@ def info_bus(busstop):
 
             except requests.exceptions.Timeout:
                 print("error")
-                pass
 
         
 
