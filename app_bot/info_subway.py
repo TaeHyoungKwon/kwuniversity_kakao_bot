@@ -51,6 +51,7 @@ def info_subway():
 
 
                 if a.find("subwayid").text == '1001' and a.find("updnline").text=="하행" and down == False:
+                    inf_dict_down1["st_recptndt"] = a.find("recptndt").text
                     inf_dict_down1["st_updnline"] = a.find("updnline").text
                     inf_dict_down1["st_trainlinenm"] = a.find("trainlinenm").text.split("-")[0]
                     inf_dict_down1["st_arvlmsg2"] = a.find("arvlmsg2").text
