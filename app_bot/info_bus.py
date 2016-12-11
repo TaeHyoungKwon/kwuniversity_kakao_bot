@@ -34,9 +34,12 @@ def info_bus(busstop):
                 print("end1 {}".format(end1))
                 
                 start2 = time.time()
-                response2 = requests.get(api_2)
+                response2 = requests.get(api_2,timeout=1)
                 end2 = time.time() -start2
                 print("end2 {}".format(end2))
+
+                retry = False
+
 
             except requests.exceptions.Timeout:
                 print("error")
