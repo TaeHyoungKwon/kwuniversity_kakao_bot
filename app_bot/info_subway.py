@@ -7,10 +7,12 @@ import time
 
 def info_subway():
     start = time.time()
-
+    
     api = 'http://swopenAPI.seoul.go.kr/api/subway/435156415a6b74683131396b51665744/xml/realtimeStationArrival/0/5/광운대' 
-    try:    
+    try: 
+
         response = requests.get(api)
+        time.sleep(2)
         inf = BeautifulSoup(response.text, 'html.parser')
 
 

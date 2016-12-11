@@ -24,7 +24,8 @@ def info_bus(busstop):
     try:
         response1 = requests.get(api_1)
         response2 = requests.get(api_2)
-
+        
+        time.sleep(2)
         inf1 = BeautifulSoup(response1.text, 'html.parser')
         inf2 = BeautifulSoup(response2.text, 'html.parser')
 
@@ -119,7 +120,7 @@ def info_bus(busstop):
         return result
     
     except (requests.exceptions.ConnectionError,OSError) as e:
-        info_bus(busstop)
+        return e
 
         
 
