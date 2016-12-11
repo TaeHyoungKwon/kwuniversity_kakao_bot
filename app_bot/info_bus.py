@@ -24,20 +24,24 @@ def info_bus(busstop):
     try:
         retry = True
         while retry:
-            start1 = time.time()
 
-            response1 = requests.get(api_1)
-            end1 = time.time() - start1
+            try:
+                start1 = time.time()
 
-            print("end1 {}".format(end1))
-            if end1 > 2:
+                response1 = requests.get(api_1,timeout=1)
+                end1 = time.time() - start1
+
+                print("end1 {}".format(end1))
+                
+                start2 = time.time()
+                response2 = requests.get(api_2)
+                end2 = time.time() -start2
+                print("end2 {}".format(end2))
+
+            except requests.exceptions.Timeout:
+                print("error")
                 pass
-            else:
-                retry = False
-            start2 = time.time()
-            response2 = requests.get(api_2)
-            end2 = time.time() -start2
-            print("end2 {}".format(end2))
+
         
 
             inf1 = BeautifulSoup(response1.text, 'html.parser')
