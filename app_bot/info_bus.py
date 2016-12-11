@@ -130,7 +130,7 @@ def info_bus(busstop):
         elif busstop == "월계삼거리":
             msg_top =  "실시간 버스 도착정보 입니다.\n\n\n월계삼거리 -> 월계 방향 or 광운대역 방향\n\n"
             msg_bus1 ="* {}\n{}\n{}\n\n".format(inf_dict1['bus_1'], inf_dict1['arrmsgsec1_1'], inf_dict1['arrmsgsec2_1'])
-            msg_bus2 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_2'], inf_dict1['arrmsgsec1_2'], inf_dict1['arrmsgsec2_2'])
+            msg_bus2 ="* {}\n{}\n{}\n\n".format(inf_dict1['bus_2'], inf_dict1['arrmsgsec1_2'], inf_dict1['arrmsgsec2_2'])
             msg_bus3 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_3'], inf_dict1['arrmsgsec1_3'], inf_dict1['arrmsgsec2_3'])
 
             msg_middle =  "월계삼거리(에뽕버거 앞) -> 광운대 정문 방향  \n\n"
