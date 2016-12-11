@@ -74,7 +74,7 @@ def info_subway():
             )
 
                        )
-            msg_time = "기준 시각 : {}\n\n".format(inf_dict_down1['st_recptndt'])
+            msg_time2 = "기준 시각 : {}\n\n".format(inf_dict_down1['st_recptndt'])
             msg_info_down = ("# {}\n{} - {}\n{} - {}\n\n".format(
 
                     inf_dict_down1['st_updnline'], 
@@ -83,7 +83,7 @@ def info_subway():
 
                        )
 
-            message = msg_intro + msg_time + msg_info_up + msg_info_down
+            message = msg_intro + msg_time + msg_info_up + msg_time2 + msg_info_down
 
             result = {"text":message}
             end = time.time() - start
