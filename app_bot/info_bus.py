@@ -131,11 +131,15 @@ def info_bus(busstop):
             msg_top =  "실시간 버스 도착정보 입니다.\n\n\n월계삼거리 -> 월계 방향 or 광운대역 방향\n\n"
             msg_bus1 ="* {}\n{}\n{}\n\n".format(inf_dict1['bus_1'], inf_dict1['arrmsgsec1_1'], inf_dict1['arrmsgsec2_1'])
             msg_bus2 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_2'], inf_dict1['arrmsgsec1_2'], inf_dict1['arrmsgsec2_2'])
-            
+            msg_bus3 ="* {}\n{}\n{}\n\n\n".format(inf_dict1['bus_3'], inf_dict1['arrmsgsec1_3'], inf_dict1['arrmsgsec2_3'])
+
             msg_middle =  "월계삼거리(에뽕버거 앞) -> 광운대 정문 방향  \n\n"
             msg_bus4 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_1'],inf_dict2['arrmsgsec1_1'],inf_dict2['arrmsgsec2_1'])
-            
             msg_bus5 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_2'],inf_dict2['arrmsgsec1_2'],inf_dict2['arrmsgsec2_2'])
+            msg_bus6 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_3'],inf_dict2['arrmsgsec1_3'],inf_dict2['arrmsgsec2_3'])
+            msg_bus7 ="* {}\n{}\n{}\n\n".format(inf_dict2['bus_4'],inf_dict2['arrmsgsec1_4'],inf_dict2['arrmsgsec2_4'])   
+
+        
             message = msg_top + msg_bus1 +  msg_bus2 + msg_middle + msg_bus4 +  msg_bus5
 
         result = {"text":message}

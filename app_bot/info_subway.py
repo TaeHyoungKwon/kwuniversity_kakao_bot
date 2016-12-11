@@ -18,7 +18,7 @@ def info_subway():
 
 
         if inf.find("message").text == "해당하는 데이터가 없습니다.":
-            message = "현재는 운행 시간이 아닙니다.\n"
+            message = "현재는 운행 시간이 아닙니다."
             result = {"text":message}
             return result
 
@@ -73,6 +73,7 @@ def info_subway():
             )
 
                        )
+            msg_time = "기준 시각 : {}\n\n".format(inf_dict_down1['st_recptndt'])
             msg_info_down = ("# {}\n{} - {}\n{} - {}\n\n".format(
 
                     inf_dict_down1['st_updnline'], 
