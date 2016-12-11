@@ -21,11 +21,13 @@ def info_bus(busstop):
         result = {"text":message}
         return result
 
+    cnt =0
     try:
         retry = True
         while retry:
 
             try:
+                cnt+=1
                 start1 = time.time()
 
                 response1 = requests.get(api_1,timeout=1)
@@ -39,6 +41,7 @@ def info_bus(busstop):
                 print("end2 {}".format(end2))
 
                 retry = False
+                print(cnt)
 
 
             except requests.exceptions.Timeout:
