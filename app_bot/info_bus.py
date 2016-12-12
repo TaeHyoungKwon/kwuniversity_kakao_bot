@@ -6,6 +6,7 @@ import time
 def info_bus(busstop):
 
     requests_cache.install_cache('demo_cache')
+    requests_cache.clear()
     start = time.time()
     if busstop =="광운대":
         api_1 = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByUid?serviceKey=vuKP%2B0q5LtoAn%2BTiURtQJFJwxEpHibYAJdYckWAp1NeXGb4PhnZp%2FJJGdTAaAdVQlnYwZCmUhv22IK9rOXRUog%3D%3D&arsId=11285&numOfRows=5&pageSize=999&pageNo=1&startPage=1"
