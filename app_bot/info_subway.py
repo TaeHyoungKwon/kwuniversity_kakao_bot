@@ -8,7 +8,7 @@ import requests_cache
 
 def info_subway():
 
-    requests_cache.CachedSession('subway',expire_after=10)
+    requests_cache.CachedSession('subway',expire_after=30)
     start = time.time()
     
     api = 'http://swopenAPI.seoul.go.kr/api/subway/435156415a6b74683131396b51665744/xml/realtimeStationArrival/0/5/광운대' 
