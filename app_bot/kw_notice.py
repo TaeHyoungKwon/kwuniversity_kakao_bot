@@ -3,8 +3,16 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import requests_cache
+import time
+
+
 def kw_notice():
     
+    start = time.time()
+    requests_cache.install_cache()
+    requests_cache.clear()
+
     url = "http://www.kw.ac.kr/ko/life/notice.do"
     u_a = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36"
 
@@ -31,6 +39,8 @@ def kw_notice():
             break
             
     result = {"text":message}
+    end = time.time()-start
+    print(end)
     
     return result
 
