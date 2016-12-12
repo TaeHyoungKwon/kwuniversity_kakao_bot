@@ -91,9 +91,8 @@ def info_subway():
             
             print(end)
             return result
-    except requests.exceptions.ConnectionError:
-        request.status_code = "Connection refuse"
-        return request.status_code
+    except (requests.exceptions.ConnectionError,OSError) as e:
+        return e
 
 if __name__ == "__main__":
     start = time.time()
