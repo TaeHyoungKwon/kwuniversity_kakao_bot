@@ -87,6 +87,8 @@ def info_subway():
 
             result = {"text":message}
             end = time.time() - start
+            requests_cache.clear()
+
             print(end)
             return result
     except requests.exceptions.ConnectionError:
