@@ -3,14 +3,11 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import requests_cache
-
 def kw_notice():
     
     url = "http://www.kw.ac.kr/ko/life/notice.do"
     u_a = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36"
 
-    requests_cache.install_cache('notice')
 
     response = requests.get(url, headers={"USER-AGENT":u_a})
     soup = BeautifulSoup(response.text, 'html.parser')
