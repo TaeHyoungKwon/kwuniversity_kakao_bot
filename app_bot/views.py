@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 
 from django.views.decorators.csrf import csrf_exempt
 
+from .models import SearchWord
 
 from .kw_notice import kw_notice
 from .kw_jobinfo import kw_jobinfo
@@ -84,6 +85,11 @@ def message(request):
 
         else:
             textContent = {"text":"잘못 누르셨습니다. 욕설및 도배는 자제해주세요.."}
+            
+        k =  content['content']
+
+        obj = SearchWord.objects.create(word=k)
+        obj.save()
 
         textMessage = {"message":textContent}
         return JsonResponse(textMessage)
