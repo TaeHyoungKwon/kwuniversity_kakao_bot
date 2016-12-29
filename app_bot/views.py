@@ -16,6 +16,8 @@ from .uc_reservation import *
 from .info_subway import info_subway
 from .info_bus import info_bus
 
+from .msg_count import msg_count
+
 import datetime
 
 @csrf_exempt
@@ -83,6 +85,9 @@ def message(request):
 
             textContent = info_bus(busstop)
 
+        elif content['content'] == "@몇건":
+            textContent = msg_count()
+            
         else:
             textContent = {"text":"잘못 누르셨습니다. 욕설및 도배는 자제해주세요.."}
             
