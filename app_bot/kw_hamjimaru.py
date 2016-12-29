@@ -67,8 +67,9 @@ def kw_hamjimaru():
         result_yethyang['fri'] + "\n"        
         )
         
-        
-        message = start['value'] + " ~ " + end['value']+ "\n함지마루(복지관 학생식당) 금주 식단 입니다."+ "\n"+"\n!!!해당 정보는 학교 홈피에서 받아 오고 있습니다. 업데이트 안되어있을시, 학교 복지처에 문의해 주세요.!!!\n\n" + result_yethyang_str
+    
+        notice = "\n\n복지관 3층 함지마루 학생식당 임시휴업 안내 입니다. \n내부시설 보수공사로인해 \n2017.01.20(금) ~ 2017.02.05(일) 까지 임시휴업 한다고 합니다. \n참고하시기 바랍니다."
+        message = start['value'] + " ~ " + end['value']+ "\n함지마루(복지관 학생식당) 금주 식단 입니다."+ "\n"+"\n!!!해당 정보는 학교 홈피에서 받아 오고 있습니다. 업데이트 안되어있을시, 학교 복지처에 문의해 주세요.!!!\n\n" + result_yethyang_str + notice
         result = {"text":message}
         
         return result
@@ -168,7 +169,6 @@ def kw_hamjimaru():
 
         '''''''''''''석식 식단 끝'''''''''''''
 
-        notice = "\n\n복지관 3층 함지마루 학생식당 임시휴업 안내 입니다. \n내부시설 보수공사로인해 \n2017.01.20(금) ~ 2017.02.05(일) 까지 임시휴업 한다고 합니다. \n참고하시기 바랍니다."
         message = start['value'] + " ~ " + end['value']+ "\n함지마루(복지관 학생식당) 금주 식단 입니다."+ "\n"+"\n!!!해당 정보는 학교 홈피에서 받아 오고 있습니다. 업데이트 안되어있을시, 학교 복지처에 문의해 주세요.!!!\n\n" + result_yethyang_str+"===============" + result_court_str+"===============" + result_dinner_str + notice
         result = {"text":message}
 
