@@ -25,7 +25,6 @@ def date_modify(date,week):
 
 def kw_hamjimaru():
 
-
     url = "http://www.kw.ac.kr/ko/life/facility11.do"
     u_a = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36"
 
@@ -49,11 +48,11 @@ def kw_hamjimaru():
         "name" : "중식 - ",
         "price":" 3500원",
         "time" : str(diet_0['st']) + " ~ " + str(diet_0['et']) + "\n",
-        "mon" : "금요일 - "+start['value'] + "\n" + diet_0['d1'],
-        "tue" : "토요일 - "+ date_modify(start['value'],"화요일")  + "\n" + diet_0['d2']+"\n",
-        "wed" : "일요일 - "+ date_modify(start['value'],"수요일")  + "\n" + diet_0['d3'] + "\n",
-        "thu" : "월요일 - "+ date_modify(start['value'],"목요일")  + "\n" + diet_0['d4'] + "\n",
-        "fri" : "화요일 - "+ date_modify(start['value'],"금요일")  + "\n" + diet_0['d5']
+        "mon" : "월요일 - "+start['value'] + "\n" + diet_0['d1'],
+        "tue" : "화요일 - "+ date_modify(start['value'],"화요일")  + "\n" + diet_0['d2']+"\n",
+        "wed" : "수요일 - "+ date_modify(start['value'],"수요일")  + "\n" + diet_0['d3'] + "\n",
+        "thu" : "목요일 - "+ date_modify(start['value'],"목요일")  + "\n" + diet_0['d4'] + "\n",
+        "fri" : "금요일 - "+ date_modify(start['value'],"금요일")  + "\n" + diet_0['d5']
         })
 
         result_yethyang_str = (
@@ -169,8 +168,10 @@ def kw_hamjimaru():
 
         '''''''''''''석식 식단 끝'''''''''''''
 
-        message = start['value'] + " ~ " + end['value']+ "\n함지마루(복지관 학생식당) 금주 식단 입니다."+ "\n"+"\n!!!해당 정보는 학교 홈피에서 받아 오고 있습니다. 업데이트 안되어있을시, 학교 복지처에 문의해 주세요.!!!\n\n" + result_yethyang_str+"===============" + result_court_str+"===============" + result_dinner_str
+        notice = "\n\n복지관 3층 함지마루 학생식당 임시휴업 안내 입니다. \n내부시설 보수공사로인해 \n2017.01.20(금) ~ 2017.02.05(일) 까지 임시휴업 한다고 합니다. \n참고하시기 바랍니다."
+        message = start['value'] + " ~ " + end['value']+ "\n함지마루(복지관 학생식당) 금주 식단 입니다."+ "\n"+"\n!!!해당 정보는 학교 홈피에서 받아 오고 있습니다. 업데이트 안되어있을시, 학교 복지처에 문의해 주세요.!!!\n\n" + result_yethyang_str+"===============" + result_court_str+"===============" + result_dinner_str + notice
         result = {"text":message}
+
 
         return result
 
