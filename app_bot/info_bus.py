@@ -65,12 +65,12 @@ def info_bus(busstop):
                 inf_dict1["arrmsgsec1_1"] = a.find("arrmsgsec1").text
                 inf_dict1["arrmsgsec2_1"] = a.find("arrmsgsec2").text
 
-            elif a.find("busrouteid").text == "100100130":
+            elif a.find("busrouteid").text == "100100152":
                 inf_dict1["bus_2"] = "1137"
                 inf_dict1["arrmsgsec1_2"] = a.find("arrmsgsec1").text
                 inf_dict1["arrmsgsec2_2"] = a.find("arrmsgsec2").text
 
-            elif a.find("busrouteid").text == "100100152":
+            elif a.find("busrouteid").text == "100100130":
                 inf_dict1["bus_3"] = "1017"
                 inf_dict1["arrmsgsec1_3"] = a.find("arrmsgsec1").text
                 inf_dict1["arrmsgsec2_3"] = a.find("arrmsgsec2").text
@@ -82,12 +82,12 @@ def info_bus(busstop):
                 inf_dict2["arrmsgsec1_1"] = a.find("arrmsgsec1").text
                 inf_dict2["arrmsgsec2_1"] = a.find("arrmsgsec2").text
 
-            elif a.find("busrouteid").text == "100100130":
+            elif a.find("busrouteid").text == "100100152":
                 inf_dict2["bus_2"] = "1137"
                 inf_dict2["arrmsgsec1_2"] = a.find("arrmsgsec1").text
                 inf_dict2["arrmsgsec2_2"] = a.find("arrmsgsec2").text
 
-            elif a.find("busrouteid").text == "100100152":
+            elif a.find("busrouteid").text == "100100130":
                 inf_dict2["bus_3"] = "1017"
                 inf_dict2["arrmsgsec1_3"] = a.find("arrmsgsec1").text
                 inf_dict2["arrmsgsec2_3"] = a.find("arrmsgsec2").text
