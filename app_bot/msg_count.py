@@ -4,7 +4,7 @@ import json
 
 def msg_count():
 
-    con = sqlite3.connect("../db.sqlite3")
+    con = sqlite3.connect("/home/thkwon/gostudy/project/legacy/kwbot2/kw_alarmbot/db.sqlite3")
     cursor = con.cursor()
     cursor.execute("SELECT * FROM app_bot_searchword;")
     

@@ -15,6 +15,7 @@ from .kw_foodcourtmenu import kw_foodcourtmenu
 from .uc_reservation import *
 from .info_subway import info_subway
 from .info_bus import info_bus
+from .info_weather import info_weather
 
 from .msg_count import msg_count
 
@@ -87,6 +88,8 @@ def message(request):
 
         elif content['content'] == "@몇건":
             textContent = msg_count()
+        elif content['content'] == "@날씨":
+            textContent = info_weather()
             
         else:
             textContent = {"text":"잘못 누르셨습니다. 욕설및 도배는 자제해주세요.."}
