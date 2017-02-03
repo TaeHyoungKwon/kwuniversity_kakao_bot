@@ -38,7 +38,7 @@ def kw_notice():
         else:
             break
             
-    result = {"text":message}
+    result = message
     end = time.time()-start
     print(end)
     
