@@ -24,7 +24,7 @@ def kw_notice():
     a_soup = div_soup.find_all("a")
     p_soup = div_soup.find_all("p",{"class":"info"})
 
-    message=""
+    message="공지사항 보기 : http://www.kw.ac.kr/ko/life/notice.do\n\n"
     cnt = 0
     
     for ele in a_soup[:25]:
@@ -38,10 +38,9 @@ def kw_notice():
         else:
             break
             
-    result = message
+    result = {"text":message}
     end = time.time()-start
     print(end)
-    print(len(result))
     
     return result
 

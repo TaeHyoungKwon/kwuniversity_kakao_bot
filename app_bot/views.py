@@ -51,18 +51,8 @@ def message(request):
                                          
 
         elif content['content'] == "@공지사항":
-             
-            text = kw_notice()
-            
-            message_button['label'] = "공지사항           보기"
-            message_button['url'] = "http://www.kw.ac.kr/ko/life/notice.do"
+            textContent = kw_notice()
 
-            result['text'] = text
-            result['message_button'] = message_button
-
-            textContent = result
-
-            message_button_check = True
 
         elif content['content'] =="@취업정보":
             textContent = kw_jobinfo()   
