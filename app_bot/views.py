@@ -105,8 +105,10 @@ def message(request):
 
         if message_button_check == False:
             textMessage = {"message":textContent}
+            print("Kwon")
         else:
             textMessage = {"message":textContent,"message_button":{"label":label,"url":url}}
+            print("Hyoung")
 
 
         return JsonResponse(textMessage)
@@ -119,7 +121,6 @@ def initial_message(request):
     
 
 def key(request):
-
     if request.method == "GET":
     
         keyList = ["@메뉴얼"]
