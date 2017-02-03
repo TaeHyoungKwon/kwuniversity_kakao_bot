@@ -107,8 +107,10 @@ def message(request):
             textMessage = {"message":textContent}
             print("Kwon")
         else:
-            textMessage = {"message":textContent,"message_button":{"label":label,"url":url}}
-            print("Hyoung")
+            textMessage = {"message":
+                    {"text":textContent,
+                    "message_button":
+                    {"label":label,"url":url}}}
 
 
         return JsonResponse(textMessage)
