@@ -27,6 +27,9 @@ def message(request):
     if request.method == "POST":
 
         message_button_check = False
+        message_button = {}
+        result = {}
+
         content = json.loads(request.body.decode('utf-8'))
         if content['content'] == "@메뉴얼":
             textContent = { "text" : ('''안녕하세요 '광운대알림봇' 입니다.\n
@@ -48,9 +51,17 @@ def message(request):
                                          
 
         elif content['content'] == "@공지사항":
-            textContent = kw_notice()
-            label = "공지사항 보기"
-            url = "http://www.kw.ac.kr/ko/life/notice.do"
+             
+            text = kw_notice()
+            
+            message_button['label'] = "공지사항 보기"
+            message_button['url'] = "http://www.kw.ac.kr/ko/life/notice.do"
+
+            result['text'] = text
+            result['message_button'] = message_button
+
+            textContent = result
+
             message_button_check = True
 
         elif content['content'] =="@취업정보":
@@ -103,21 +114,8 @@ def message(request):
         obj = SearchWord.objects.create(word=k)
         obj.save()
 
-        if message_button_check == False:
-            textMessage = {"message":textContent}
-            print("Kwon")
-        else:
-            textMessage = {"message":{
-                    "text":textContent,
-                    "message_button":{
-                        "label":label,
-                        "url":url
-                        }
-                    }
-                    }
+        textMessage = {"message":textContent}
                     
-
-
         return JsonResponse(textMessage)
 """
 def initial_message(request):
