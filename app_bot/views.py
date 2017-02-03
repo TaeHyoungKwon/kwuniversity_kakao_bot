@@ -27,10 +27,6 @@ def message(request):
     if request.method == "POST":
 
         content = json.loads(request.body.decode('utf-8'))
-
-    if content['content'] == "@학교정보":
-        textContent = {"keyboard":{"type":"buttons","buttons":["@공지사항"]}}
-
         if content['content'] == "@메뉴얼":
             textContent = { "text" : ('''안녕하세요 '광운대알림봇' 입니다.\n
 ##### 메뉴얼 보기 #####\n
@@ -50,7 +46,7 @@ def message(request):
 ''')}
                                          
 
-        elif textContent == "@공지사항":
+        elif content['content'] == "@공지사항":
             textContent = kw_notice()
 
         elif content['content'] =="@취업정보":
@@ -117,8 +113,12 @@ def key(request):
 
     if request.method == "GET":
     
-        keyList = ["@메뉴얼","@학교정보","@편의기능"]
-        keyboardList = {'type':'buttons', 'buttons': keyList}  
+        keyList = ["@메뉴얼"]
+        keyboardList = {'type':'buttons', 'buttons': keyList}
+    
+   # textContent = { "text" : '''안녕하세요 광운대학교 풍물굿패 연합 봇 입니다.\n1. !소개\n= 광풍연 소개를 보실 수 있습니다.\n\n2. !홍보영상= 광풍연 홍보영상을 보실 수 있습니다.\n\n3. 각 월 마다, 광풍연 행사에 대해서 보실 수 있습니다.'''}
+   # textMessage = {"type":"text","message" : textContent}
+    
         return JsonResponse(keyboardList)
 
 @csrf_exempt
