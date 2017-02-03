@@ -49,7 +49,6 @@ def kw_schedule():
  
         })
     
-    print()
     
     
     result_2_str = (
@@ -92,7 +91,6 @@ def kw_schedule():
     
     result = {"text":message}
     
-    print(message)
     return result
     
     
