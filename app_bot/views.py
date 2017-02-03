@@ -54,7 +54,7 @@ def message(request):
              
             text = kw_notice()
             
-            message_button['label'] = "공지사항 보기"
+            message_button['label'] = "공지사항           보기"
             message_button['url'] = "http://www.kw.ac.kr/ko/life/notice.do"
 
             result['text'] = text

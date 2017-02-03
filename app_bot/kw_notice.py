@@ -41,6 +41,7 @@ def kw_notice():
     result = message
     end = time.time()-start
     print(end)
+    print(len(result))
     
     return result
 
