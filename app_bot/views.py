@@ -23,9 +23,10 @@ import datetime
 
 @csrf_exempt
 def message(request):
-
+    
     if request.method == "POST":
 
+        message_button_check = False
         content = json.loads(request.body.decode('utf-8'))
         if content['content'] == "@메뉴얼":
             textContent = { "text" : ('''안녕하세요 '광운대알림봇' 입니다.\n
@@ -48,6 +49,9 @@ def message(request):
 
         elif content['content'] == "@공지사항":
             textContent = kw_notice()
+            label = "공지사항 보기"
+            url = "http://www.kw.ac.kr/ko/life/notice.do"
+            message_button_check = True
 
         elif content['content'] =="@취업정보":
             textContent = kw_jobinfo()   
@@ -99,7 +103,12 @@ def message(request):
         obj = SearchWord.objects.create(word=k)
         obj.save()
 
-        textMessage = {"message":textContent}
+        if message_button_check == False:
+            textMessage = {"message":textContent}
+        else:
+            textMessage = {"message":textContent,"message_button":{"label":label,"url":url}}
+
+
         return JsonResponse(textMessage)
 """
 def initial_message(request):
