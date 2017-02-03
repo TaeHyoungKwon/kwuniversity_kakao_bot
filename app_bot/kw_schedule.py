@@ -28,41 +28,65 @@ def kw_schedule():
     #현재 '달' 로 부터 +4 달 만큼의 일정을 보여준다.
     #str(datetime.today().month)
     
-    bachelor_11 = text["bachelor_11"][0]
+    bachelor_2 = text["bachelor_2"][0]
     
-    result_11 = OrderedDict({
+    result_2 = OrderedDict({
 
-    "month" : "11월 학사일정 입니다.\n\n\n",
-    "event1": str(bachelor_11["sd_11_0"]) + " - " +str(bachelor_11["ed_11_0"]) + "\n" + str(bachelor_11["con_11_0"]),
-    "event2": str(bachelor_11["sd_11_1"]) +" -  " +str(bachelor_11["ed_11_1"]) + "\n" + str(bachelor_11["con_11_1"]),
-    "event3": str(bachelor_11["sd_11_2"]) + " -  "+str(bachelor_11["ed_11_2"]) +"\n" + str(bachelor_11["con_11_2"])
+    "month" : "2월 학사일정 입니다.\n\n\n",
+    "event1": str(bachelor_2["sd_2_0"]) + " - " +str(bachelor_2["ed_2_0"]) + "\n" + str(bachelor_2["con_2_0"]),
+    "event2": str(bachelor_2["sd_2_1"]) +" -  " +str(bachelor_2["ed_2_1"]) + "\n" + str(bachelor_2["con_2_1"]),
+    "event3": str(bachelor_2["sd_2_2"]) + " -  "+str(bachelor_2["ed_2_2"]) +"\n" + str(bachelor_2["con_2_2"]),
+
+    "event4": str(bachelor_2["sd_2_3"]) + " - " +str(bachelor_2["ed_2_3"]) + "\n" + str(bachelor_2["con_2_3"]),
+    "event5": str(bachelor_2["sd_2_4"]) +" -  " +str(bachelor_2["ed_2_4"]) + "\n" + str(bachelor_2["con_2_4"]),
+    "event6": str(bachelor_2["sd_2_5"]) + " -  "+str(bachelor_2["ed_2_5"]) +"\n" + str(bachelor_2["con_2_5"]),
+ 
+    "event7": str(bachelor_2["sd_2_6"]) + " - " +str(bachelor_2["ed_2_6"]) + "\n" + str(bachelor_2["con_2_6"]),
+    "event8": str(bachelor_2["sd_2_7"]) +" -  " +str(bachelor_2["ed_2_7"]) + "\n" + str(bachelor_2["con_2_7"]),
+    "event9": str(bachelor_2["sd_2_8"]) + " -  "+str(bachelor_2["ed_2_8"]) +"\n" + str(bachelor_2["con_2_8"]),
+ 
+    "event10": str(bachelor_2["sd_2_9"]) + " - " +str(bachelor_2["ed_2_9"]) + "\n" + str(bachelor_2["con_2_9"])
+ 
         })
     
     
-    result_11_str = result_11["month"] + result_11["event1"]+"\n\n" + result_11["event2"]+"\n\n" + result_11["event3"] + "\n\n\n" 
+    result_2_str = (
+            result_2["month"] + 
+            result_2["event1"]+"\n\n" + 
+            result_2["event2"]+"\n\n" + 
+            result_2["event3"] + "\n\n" + 
+            
+            result_2["event4"]+"\n\n" + 
+            result_2["event5"]+"\n\n" + 
+            result_2["event6"] + "\n\n" + 
+            
+            result_2["event7"]+"\n\n" + 
+            result_2["event8"]+"\n\n" + 
+            result_2["event9"] + "\n\n" + 
+            
+            result_2["event10"]+"\n\n\n"
+            
+            )
     
     
-    bachelor_12 = text["bachelor_12"][0]
+    bachelor_3 = text["bachelor_3"][0]
     
-    result_12 = OrderedDict({
+    result_3 = OrderedDict({
 
-    "month" : "12월 학사일정 입니다.\n\n\n",
-    "event1": str(bachelor_12["sd_12_0"]) + " - " +str(bachelor_12["ed_12_0"]) + "\n" + str(bachelor_12["con_12_0"]),
-    "event2": str(bachelor_12["sd_12_1"]) +" -  " +str(bachelor_12["ed_12_1"]) + "\n" + str(bachelor_12["con_12_1"]),
-    "event3": str(bachelor_12["sd_12_2"]) + " -  "+str(bachelor_12["ed_12_2"]) +"\n" + str(bachelor_12["con_12_2"]),
-    "event4": str(bachelor_12["sd_12_3"]) + " -  "+str(bachelor_12["ed_12_3"]) +"\n" + str(bachelor_12["con_12_3"]),
-    "event5": str(bachelor_12["sd_12_4"]) + " -  "+str(bachelor_12["ed_12_4"]) +"\n" + str(bachelor_12["con_12_4"]),
+    "month" : "3월 학사일정 입니다.\n\n\n",
+    "event1": str(bachelor_3["sd_3_0"]) + " - " +str(bachelor_3["ed_3_0"]) + "\n" + str(bachelor_3["con_3_0"]),
+    "event2": str(bachelor_3["sd_3_1"]) +" -  " +str(bachelor_3["ed_3_1"]) + "\n" + str(bachelor_3["con_3_1"]),
+    "event3": str(bachelor_3["sd_3_2"]) + " -  "+str(bachelor_3["ed_3_2"]) +"\n" + str(bachelor_3["con_3_2"]),
         })
     
     
-    result_12_str = (result_12["month"] + 
-                     result_12["event1"]+"\n\n"+ 
-                     result_12["event2"]+"\n\n"+ 
-                     result_12["event3"]+"\n\n"+  
-                     result_12["event4"]+"\n\n"+ 
-                     result_12["event5"])
+    result_3_str = (result_3["month"] + 
+                     result_3["event1"]+"\n\n"+ 
+                     result_3["event2"]+"\n\n"+ 
+                     result_3["event3"]
+)
     
-    message = result_11_str + result_12_str
+    message = result_2_str + result_3_str
     
     result = {"text":message}
 

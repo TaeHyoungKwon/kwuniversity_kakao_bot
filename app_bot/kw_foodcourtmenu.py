@@ -29,7 +29,7 @@ def kw_foodcourtmenu(menu):
 
 
                         
-    message ="푸드코트 홈페이지 보기 : http://foodcourt.kw.ac.kr/menu/menu_chinesefood.html\n\n""'" +  menu + "'" + "메뉴 정보 입니다.!(학생요금 / 일반요금)\n\n"
+    message ="'" +  menu + "'" + "메뉴 정보 입니다.!(학생요금 / 일반요금)\n\n"
 
     u_a = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36"
 
