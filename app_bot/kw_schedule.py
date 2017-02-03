@@ -32,22 +32,24 @@ def kw_schedule():
     
     result_2 = OrderedDict({
 
-    "month" : "2월 학사일정 입니다.\n\n\n",
+    "month" : "##광운대 17년도 2월 학사일정 입니다.##\n\n",
     "event1": str(bachelor_2["sd_2_0"]) + " - " +str(bachelor_2["ed_2_0"]) + "\n" + str(bachelor_2["con_2_0"]),
     "event2": str(bachelor_2["sd_2_1"]) +" -  " +str(bachelor_2["ed_2_1"]) + "\n" + str(bachelor_2["con_2_1"]),
     "event3": str(bachelor_2["sd_2_2"]) + " -  "+str(bachelor_2["ed_2_2"]) +"\n" + str(bachelor_2["con_2_2"]),
 
     "event4": str(bachelor_2["sd_2_3"]) + " - " +str(bachelor_2["ed_2_3"]) + "\n" + str(bachelor_2["con_2_3"]),
     "event5": str(bachelor_2["sd_2_4"]) +" -  " +str(bachelor_2["ed_2_4"]) + "\n" + str(bachelor_2["con_2_4"]),
-    "event6": str(bachelor_2["sd_2_5"]) + " -  "+str(bachelor_2["ed_2_5"]) +"\n" + str(bachelor_2["con_2_5"]),
+    "event6": str(bachelor_2["sd_2_5"])  +"\n" + str(bachelor_2["con_2_5"]),
  
-    "event7": str(bachelor_2["sd_2_6"]) + " - " +str(bachelor_2["ed_2_6"]) + "\n" + str(bachelor_2["con_2_6"]),
-    "event8": str(bachelor_2["sd_2_7"]) +" -  " +str(bachelor_2["ed_2_7"]) + "\n" + str(bachelor_2["con_2_7"]),
-    "event9": str(bachelor_2["sd_2_8"]) + " -  "+str(bachelor_2["ed_2_8"]) +"\n" + str(bachelor_2["con_2_8"]),
+    "event7": str(bachelor_2["sd_2_6"])  +"\n" + str(bachelor_2["con_2_6"]),
+    "event8": str(bachelor_2["sd_2_7"])  +"\n" + str(bachelor_2["con_2_7"].strip()),
+    "event9": str(bachelor_2["sd_2_8"]) +"\n" + str(bachelor_2["con_2_8"]),
  
     "event10": str(bachelor_2["sd_2_9"]) + " - " +str(bachelor_2["ed_2_9"]) + "\n" + str(bachelor_2["con_2_9"])
  
         })
+    
+    print()
     
     
     result_2_str = (
@@ -73,10 +75,10 @@ def kw_schedule():
     
     result_3 = OrderedDict({
 
-    "month" : "3월 학사일정 입니다.\n\n\n",
-    "event1": str(bachelor_3["sd_3_0"]) + " - " +str(bachelor_3["ed_3_0"]) + "\n" + str(bachelor_3["con_3_0"]),
-    "event2": str(bachelor_3["sd_3_1"]) +" -  " +str(bachelor_3["ed_3_1"]) + "\n" + str(bachelor_3["con_3_1"]),
-    "event3": str(bachelor_3["sd_3_2"]) + " -  "+str(bachelor_3["ed_3_2"]) +"\n" + str(bachelor_3["con_3_2"]),
+    "month" : "##광운대 17년도 3월 학사일정 입니다.##\n\n",
+    "event1": str(bachelor_3["sd_3_0"]) +"\n" + str(bachelor_3["con_3_0"]),
+    "event2": str(bachelor_3["sd_3_1"]) +"\n"+ str(bachelor_3["con_3_1"]),
+    "event3": str(bachelor_3["sd_3_2"])+"\n"+ str(bachelor_3["con_3_2"]),
         })
     
     
@@ -89,7 +91,8 @@ def kw_schedule():
     message = result_2_str + result_3_str
     
     result = {"text":message}
-
+    
+    print(message)
     return result
     
     

@@ -28,7 +28,7 @@ def kw_jobinfo():
         result_text.append(text)
 
     cnt = 1
-    message = ""
+    message = "취업정보 게시판 보기 : http://www.kw.ac.kr/ko/life/job.do\n\n"
     for a in result_text:
         message += str(cnt)+". " +  a + "\n\n"
         cnt+=1
