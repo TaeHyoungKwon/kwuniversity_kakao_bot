@@ -10,7 +10,7 @@ def kw_schedule():
 
     initial_text =[]
     result_text = []
-	url = "http://www.kw.ac.kr/ko/life/bachelor_calendar.do"
+    url = "http://www.kw.ac.kr/ko/life/bachelor_calendar.do"
     u_a = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36"
 
     response = requests.get(url, headers={"USER-AGENT":u_a})
