@@ -11,7 +11,8 @@ def kw_schedule():
     initial_text =[]
     result_text = []
     
-    url = "http://www.kw.ac.kr/ko/life/bachelor_calendar.do?mode=view&articleNo=165"
+	#url = "http://www.kw.ac.kr/ko/life/bachelor_calendar.do?mode=view&articleNo=165"
+	url = "http://www.kw.ac.kr/ko/life/bachelor_calendar.do"
     u_a = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36"
 
     response = requests.get(url, headers={"USER-AGENT":u_a})
@@ -75,14 +76,14 @@ def kw_schedule():
     result_3 = OrderedDict({
 
     "month" : "##광운대 17년도 3월 학사일정 입니다.##\n\n",
-    "event1": str(bachelor_3["sd_3_0"]) +"\n" + str(bachelor_3["con_3_0"]),
+    "event1": str(bachelor_3["sd_3_0"]) +"" + str(bachelor_3["con_3_0"]),
     "event2": str(bachelor_3["sd_3_1"]) +"\n"+ str(bachelor_3["con_3_1"]),
     "event3": str(bachelor_3["sd_3_2"])+"\n"+ str(bachelor_3["con_3_2"]),
         })
     
     
     result_3_str = (result_3["month"] + 
-                     result_3["event1"]+"\n\n"+ 
+                     result_3["event1"]+"\n"+ 
                      result_3["event2"]+"\n\n"+ 
                      result_3["event3"]
 )
