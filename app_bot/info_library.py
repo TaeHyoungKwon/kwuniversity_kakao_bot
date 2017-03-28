@@ -18,7 +18,7 @@ def info_library():
 
     for a in td_soup:
         library.append(re.sub('<[^<]+?>', '', str(a)))
-        
+
     now = datetime.datetime.now()
     nowDateTime = now.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -30,10 +30,12 @@ def info_library():
     row3 = "{}  /  {:>3}  / {:>3} / {:>3} / {:.2f} %\n".format(library[4],library[5],library[6],library[7],float(float(library[6])/float(library[5]) * 100))
     row4 = "{}  /  {:>3}  / {:>3} / {:>3} / {:.2f} %\n\n".format(library[8],library[9],library[10],library[11],int(library[10])/int(library[9]) * 100)
     outro = "*** 본 정보는 1분 단위로 갱신 됩니다. ***\n\n"
+    end = "***상세 현황***\n\n1열람실 : http://mobileid.kw.ac.kr/seatweb/roomview5.asp?room_no=1\n2열람실 : http://mobileid.kw.ac.kr/seatweb/roomview5.asp?room_no=2\n3열람실 : http://mobileid.kw.ac.kr/seatweb/roomview5.asp?room_no=1\n\n"
 
-
-    message =   intro + nowDateTime + row1 + row2 + row3 + row4 + outro
+    message =   intro + nowDateTime + row1 + row2 + row3 + row4 + end + outro
     result = {"text":message}
+
+    return result
 
 if __name__ == "__main__":
     info_library()
