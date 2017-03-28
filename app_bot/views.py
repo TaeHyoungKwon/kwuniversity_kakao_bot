@@ -16,6 +16,7 @@ from .uc_reservation import *
 from .info_subway import info_subway
 from .info_bus import info_bus
 from .info_weather import info_weather
+from .info_library import info_library
 
 from .msg_count import msg_count
 
@@ -23,7 +24,7 @@ import datetime
 
 @csrf_exempt
 def message(request):
-    
+
     if request.method == "POST":
 
         message_button_check = False
@@ -46,18 +47,19 @@ def message(request):
 - 확인번호@예약확인\n= 확인번호(예약자 폰번호 뒷자리)로 풋살장,학식,농구장 예약을 확인 할 수 있습니다.\nex)확인번호가 '1234' 일 경우, 1234@예약확인 이라고 치시면 됩니다.\n
 - @지하철\n= 광운대역 실시간 도착정보를 전송합니다.\n
 - KEYWORD@버스\n= 광운대 주변, 석계역 주변 실시간 버스 도착정보를 전송합니다.\nKEYWORD : (광운대,석계,월계삼거리)\nex) 광운대@버스 , 석계@버스\n
-- @날씨\n= 검색날짜 기준으로, 광운대학교 당일, 익일 시간별 기온을 보여줍니다. 
+- @날씨\n= 검색날짜 기준으로, 광운대학교 당일, 익일 시간별 기온을 보여줍니다.\n
+- @열람실\n= 실시간으로 중앙도서관 1~3 열람실 좌석정보를 보여줍니다.
 
 ''')}
-                                         
+
 
         elif content['content'] == "@공지사항":
             textContent = kw_notice()
 
 
         elif content['content'] =="@취업정보":
-            textContent = kw_jobinfo()   
-                   
+            textContent = kw_jobinfo()
+
         elif content['content'] == "@학사일정":
             textContent = kw_schedule()
 
@@ -96,17 +98,20 @@ def message(request):
             textContent = msg_count()
         elif content['content'] == "@날씨":
             textContent = info_weather()
+
+        elif content['content'] == "@열람실":
+            textContent = info_library()
             
         else:
             textContent = {"text":"잘못 누르셨습니다. 욕설및 도배는 자제해주세요.."}
-            
+
         k =  content['content']
 
         obj = SearchWord.objects.create(word=k)
         obj.save()
 
         textMessage = {"message":textContent}
-                    
+
         return JsonResponse(textMessage)
 """
 def initial_message(request):
@@ -114,17 +119,17 @@ def initial_message(request):
    return JsonResponse(initial_message)
 """
 
-    
+
 
 def key(request):
     if request.method == "GET":
-    
+
         keyList = ["@메뉴얼"]
         keyboardList = {'type':'buttons', 'buttons': keyList}
-    
+
    # textContent = { "text" : '''안녕하세요 광운대학교 풍물굿패 연합 봇 입니다.\n1. !소개\n= 광풍연 소개를 보실 수 있습니다.\n\n2. !홍보영상= 광풍연 홍보영상을 보실 수 있습니다.\n\n3. 각 월 마다, 광풍연 행사에 대해서 보실 수 있습니다.'''}
    # textMessage = {"type":"text","message" : textContent}
-    
+
         return JsonResponse(keyboardList)
 
 @csrf_exempt
@@ -132,7 +137,7 @@ def friend(request):
     if request.method == "DELETE":
         response = HttpResponse()
         return response
-    
+
     elif request.method =="POST":
         response = HttpResponse()
 
@@ -140,7 +145,7 @@ def friend(request):
 
 @csrf_exempt
 def chat_room(request):
-    
+
     if request.method =="DELETE":
         response = HttpResponse()
 
