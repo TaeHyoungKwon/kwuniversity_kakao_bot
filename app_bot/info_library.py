@@ -4,7 +4,7 @@ import re
 import datetime
 
 
-def kw_library():
+def info_library():
 
     url = "http://mobileid.kw.ac.kr/seatweb/domian5.asp"
     u_a = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36"
@@ -36,4 +36,4 @@ def kw_library():
     result = {"text":message}
 
 if __name__ == "__main__":
-    kw_library()
+    info_library()
