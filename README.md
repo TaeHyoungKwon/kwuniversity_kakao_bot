@@ -2,6 +2,15 @@
 * django를 이용하여서 open API, 크롤링을 사용하여 데이터를 수집하였습니다.
 * 카카오톡 자동응답api를 이용하여서, 사용자들에게 학교 관련 정보들을 제공합니다.
 
+--------------------
+##  주요 기능 및 설명
+
+![ex_screenshot](./readme_images/15.jpg)
+![ex_screenshot](./readme_images/16.jpg)
+![ex_screenshot](./readme_images/17.jpg)
+![ex_screenshot](./readme_images/18.jpg)
+![ex_screenshot](./readme_images/19.jpg)
+
 ![ex_screenshot](./readme_images/1.jpg)
 ![ex_screenshot](./readme_images/2.jpg)
 ![ex_screenshot](./readme_images/3.jpg)
