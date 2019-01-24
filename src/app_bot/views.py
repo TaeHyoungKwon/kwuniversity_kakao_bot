@@ -1,136 +1,90 @@
-from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render, get_object_or_404
+import json
 
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import SearchWord
+from .utils import (
+    kw_notice,
+    kw_jobinfo,
+    kw_schedule,
+    kw_facilities,
+    kw_hamjimaru,
+    kw_foodcourtmenu,
+    info_subway,
+    info_bus,
+    info_weather,
+    info_library,
+    uc_reservation,
+    keyword,
+    service
+)
 
-from .kw_notice import kw_notice
-from .kw_jobinfo import kw_jobinfo
-from .kw_schedule import kw_schedule
-from .kw_facilities import kw_facilities
-from .kw_hamjimaru import kw_hamjimaru
-from .kw_foodcourtmenu import kw_foodcourtmenu
-
-from .uc_reservation import *
-from .info_subway import info_subway
-from .info_bus import info_bus
-from .info_weather import info_weather
-from .info_library import info_library
-
-from .msg_count import msg_count
-
-import datetime
 
 @csrf_exempt
 def message(request):
 
     if request.method == "POST":
-
-        message_button_check = False
-        message_button = {}
-        result = {}
-
         content = json.loads(request.body.decode('utf-8'))
-        if content['content'] == "@메뉴얼":
-            textContent = { "text" : ('''안녕하세요 '광운대알림봇' 입니다.\n
-##### 메뉴얼 보기 #####\n
-- @메뉴얼\n= 해당 메세지를 다시 볼 수 있습니다.\n
-##### 광운대 정보  #####\n
-- @공지사항\n= 학교 공지사항 상위 25개를 보여줍니다.\n
-- @취업정보\n= 학교 홈페이지 상의  취업정보 게시판을 보여줍니다.\n
-- @학사일정\n= 학교 홈페이지 상의 학사일정을 보여줍니다.\n
-- @편의시설\n= 학교 편의시설에 대한 정보를 보여줍니다.\n
-- @학식식단\n= 함지마루 금주 식단을 보여줍니다.\n
-- KEYWORD@푸코메뉴\n= KEYWORD에 해당하는 메뉴와 가격을 보여줍니다.\nKEYWORD : (중식,한식,일식,쌀국수)\nex) 한식@푸코메뉴 , 중식@푸코메뉴,....\n
-##### 편의 기능 #####\n
-- 확인번호@예약확인\n= 확인번호(예약자 폰번호 뒷자리)로 풋살장,학식,농구장 예약을 확인 할 수 있습니다.\nex)확인번호가 '1234' 일 경우, 1234@예약확인 이라고 치시면 됩니다.\n
-- @지하철\n= 광운대역 실시간 도착정보를 전송합니다.\n
-- KEYWORD@버스\n= 광운대 주변, 석계역 주변 실시간 버스 도착정보를 전송합니다.\nKEYWORD : (광운대,석계,월계삼거리)\nex) 광운대@버스 , 석계@버스\n
-- @날씨\n= 검색날짜 기준으로, 광운대학교 당일, 익일 시간별 기온을 보여줍니다.\n
-- @열람실\n= 실시간으로 중앙도서관 1~3 열람실 좌석정보를 보여줍니다.
+        keyword = content['content']
 
-''')}
+        if keyword == "@메뉴얼":
+            result = keyword.menual_text
 
+        elif keyword == "@공지사항":
+            result = kw_notice.kw_notice()
 
-        elif content['content'] == "@공지사항":
-            textContent = kw_notice()
+        elif keyword == "@취업정보":
+            result = kw_jobinfo.kw_jobinfo()
 
+        elif keyword == "@학사일정":
+            result = kw_schedule.kw_schedule()
 
-        elif content['content'] =="@취업정보":
-            textContent = kw_jobinfo()
+        elif keyword == "@편의시설":
+            result = kw_facilities.kw_facilities()
 
-        elif content['content'] == "@학사일정":
-            textContent = kw_schedule()
+        elif keyword == "@학식식단":
+            result = kw_hamjimaru.kw_hamjimaru()
 
-        elif content['content'] == "@편의시설":
-            textContent = kw_facilities()
+        elif keyword == "@지하철":
+            result = info_subway.info_subway()
 
-        elif content['content'] == "@학식식단":
-            textContent = kw_hamjimaru()
+        elif keyword == "@날씨":
+            result = info_weather.info_weather()
 
-        elif "푸코메뉴" in content['content']:
+        elif keyword == "@열람실":
+            result = info_library.info_library()
 
-            menu = content['content']
+        elif "푸코메뉴" in keyword:
+            menu = service.split_at(content['content'])
+            result = kw_foodcourtmenu.kw_foodcourtmenu(menu)
 
-            menu = menu.split("@")[0]
+        elif "예약확인" in keyword:
+            num = service.split_at(content['content'])
+            result = uc_reservation.uc_reservation(num)
 
-            textContent = kw_foodcourtmenu(menu)
+        elif "버스" in keyword:
+            busstop = service.split_at(content['content'])
+            result = info_bus.info_bus(busstop)
 
-        elif "예약확인" in content['content']:
-            num = content['content']
-
-            num = num.split("@")[0]
-
-            textContent = uc_reservation(num)
-
-        elif content['content'] == "@지하철":
-            textContent = info_subway()
-
-        elif "버스" in content['content']:
-            busstop = content['content']
-
-            busstop = busstop.split("@")[0]
-
-            textContent = info_bus(busstop)
-
-        elif content['content'] == "@몇건":
-            textContent = msg_count()
-        elif content['content'] == "@날씨":
-            textContent = info_weather()
-
-        elif content['content'] == "@열람실":
-            textContent = info_library()
-            
         else:
-            textContent = {"text":"잘못 누르셨습니다. 욕설및 도배는 자제해주세요.."}
+            result = error_text
 
-        k =  content['content']
-
-        obj = SearchWord.objects.create(word=k)
+        obj = SearchWord.objects.create(word=keyword)
         obj.save()
-
-        textMessage = {"message":textContent}
+        textMessage = {"message": result}
 
         return JsonResponse(textMessage)
-"""
-def initial_message(request):
-
-   return JsonResponse(initial_message)
-"""
-
 
 
 def key(request):
     if request.method == "GET":
 
         keyList = ["@메뉴얼"]
-        keyboardList = {'type':'buttons', 'buttons': keyList}
-
-   # textContent = { "text" : '''안녕하세요 광운대학교 풍물굿패 연합 봇 입니다.\n1. !소개\n= 광풍연 소개를 보실 수 있습니다.\n\n2. !홍보영상= 광풍연 홍보영상을 보실 수 있습니다.\n\n3. 각 월 마다, 광풍연 행사에 대해서 보실 수 있습니다.'''}
-   # textMessage = {"type":"text","message" : textContent}
+        keyboardList = {'type': 'buttons', 'buttons': keyList}
 
         return JsonResponse(keyboardList)
+
 
 @csrf_exempt
 def friend(request):
@@ -138,18 +92,20 @@ def friend(request):
         response = HttpResponse()
         return response
 
-    elif request.method =="POST":
+    elif request.method == "POST":
         response = HttpResponse()
 
         return response
 
+
 @csrf_exempt
 def chat_room(request):
 
-    if request.method =="DELETE":
+    if request.method == "DELETE":
         response = HttpResponse()
 
     return response
+
 
 def error404(request):
     return HttpResponse("No!")
