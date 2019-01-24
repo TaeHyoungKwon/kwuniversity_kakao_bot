@@ -1,3 +1,5 @@
+# views.py 리팩토링 완료
+
 import json
 
 from django.http import JsonResponse, HttpResponse
